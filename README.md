@@ -4,7 +4,8 @@ A VM with assembler to simulate tetris
 
 ## Example ##
 
-`game start
+```
+game start
 input left
 input drop
-game stop`
+game stop```
