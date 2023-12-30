@@ -1,5 +1,3 @@
-using System.Threading.Channels;
-
 namespace TetrisVM.Instructions;
 
 public class GameInstruction(GameMode mode) : IInstruction
@@ -12,17 +10,14 @@ public class GameInstruction(GameMode mode) : IInstruction
         return new GameInstruction((GameMode)reader.ReadByte());
     }
 
-    public override void Write(BinaryWriter writer)
-    {
-        this.WriteOpcode(writer);
-        writer.Write((byte)Mode);
-    }
-
     public override void Execute(VirtualMaschine vm)
     {
         switch (mode)
         {
             case GameMode.Start:
+                vm.HasStarted = true;
+                vm.Storage[0] = 1UL;
+                break;
             case GameMode.Restart:
                 vm.HasStarted = true;
                 break;
@@ -31,7 +26,5 @@ public class GameInstruction(GameMode mode) : IInstruction
                 vm.IsStopped = true;
                 break;
         }
-
-        Console.WriteLine(mode);
     }
 }

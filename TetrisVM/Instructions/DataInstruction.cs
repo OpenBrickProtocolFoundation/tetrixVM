@@ -15,12 +15,6 @@ public class DataInstruction : IInstruction
         return new DataInstruction(reader.ReadByte());
     }
 
-    public override void Write(BinaryWriter writer)
-    {
-        this.WriteOpcode(writer);
-        writer.Write(Arg);
-    }
-
     public override void Execute(VirtualMaschine vm)
     {
         throw new NotImplementedException();

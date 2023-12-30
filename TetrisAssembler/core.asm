@@ -3,6 +3,8 @@ enum OpCode {
     Input = 0x02
     Flow = 0x03
     Data = 0x04
+    Display = 0x05
+    Sleep = 0x06
 }
 
 enum GameMode {
@@ -12,10 +14,9 @@ enum GameMode {
 }
 
 enum InputDirection {
-    left = 0x01
-    right = 0x02
-    drop = 0x03
-    down = 0x04
+    left = 0x00
+    right = 0x01
+    drop = 0x02
 }
 
 macro input dir {
@@ -26,4 +27,21 @@ macro input dir {
 macro game mode {
     db Game
     db mode
+}
+
+macro start {
+    game start
+}
+
+macro stop {
+    game stop
+}
+
+macro display {
+    db Display
+}
+
+macro sleep time {
+    db Sleep
+    db time
 }

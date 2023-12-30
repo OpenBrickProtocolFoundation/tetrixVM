@@ -7,7 +7,9 @@ public class AssemblyReader(Stream raw)
     private readonly Dictionary<OpCode, IInstruction> _instructions = new()
     {
         [OpCode.Game] = new GameInstruction(GameMode.Invalid),
-        [OpCode.Input] = new InputInstruction(InputDirection.Invalid),
+        [OpCode.Input] = new InputInstruction(),
+        [OpCode.Display] = new DispayInstruction(),
+        [OpCode.Sleep] = new SleepInstruction()
     };
 
     private readonly BinaryReader _reader = new(raw);
@@ -18,6 +20,6 @@ public class AssemblyReader(Stream raw)
     {
         var opcode = (OpCode)_reader.ReadByte();
 
-        return _instructions.GetValueOrDefault(opcode).Read(_reader);
+        return _instructions.GetValueOrDefault(opcode)!.Read(_reader);
     }
 }
