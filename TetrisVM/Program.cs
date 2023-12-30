@@ -14,7 +14,7 @@ public static class Program
                                                                          game stop
                                                                          """));
 
-       using var program = document.Assemble();
+        using var program = document.Assemble();
 
         var vm = new VirtualMaschine(program);
         vm.Execute();
