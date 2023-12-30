@@ -8,4 +8,5 @@ A VM with assembler to simulate tetris
 game start
 input left
 input drop
-game stop```
+game stop
+```
