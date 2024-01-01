@@ -7,5 +7,7 @@ public enum OpCode : byte
     Flow = 0x03,
     Data = 0x04,
     Display = 0x05,
-    Sleep = 0x06
+    Sleep = 0x06,
+    PushCurrentTetromino = 0x07,
+    PushTetrominoType = 0x08
 }

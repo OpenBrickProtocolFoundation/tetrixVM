@@ -9,6 +9,7 @@ public static class Program
     {
         var document = new AssemblyDocument(new StringSource("test.asm", """
                                                                          start
+                                                                         pushTetrominoType 0 0
                                                                          input left
                                                                          input drop
                                                                          display
@@ -18,6 +19,7 @@ public static class Program
         using var program = document.Assemble();
 
         var vm = new VirtualMaschine(program);
+
         vm.Execute();
     }
 }

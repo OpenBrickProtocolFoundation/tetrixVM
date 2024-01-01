@@ -9,7 +9,10 @@ public class AssemblyReader(Stream raw)
         [OpCode.Game] = new GameInstruction(GameMode.Invalid),
         [OpCode.Input] = new InputInstruction(),
         [OpCode.Display] = new DispayInstruction(),
-        [OpCode.Sleep] = new SleepInstruction()
+        [OpCode.Sleep] = new SleepInstruction(),
+        [OpCode.PushCurrentTetromino] = new PushCurrentTetromino(),
+        [OpCode.Data] = new DataInstruction(),
+        [OpCode.PushTetrominoType] = new PushTetrominoType(),
     };
 
     private readonly BinaryReader _reader = new(raw);
