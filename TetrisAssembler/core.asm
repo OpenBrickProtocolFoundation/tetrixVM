@@ -68,6 +68,11 @@ macro pop index {
     db index
 }
 
+macro store value index {
+    push value
+    pop index
+}
+
 macro dup {
     db Data
     db Dup

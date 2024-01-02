@@ -10,8 +10,9 @@ public static class Program
         var document = new AssemblyDocument(new StringSource("test.asm", """
                                                                          start
                                                                          push 0
-                                                                         push 0
+                                                                         push 42
                                                                          sleep 200
+                                                                         store 42 1
                                                                          stop
                                                                          """));
 

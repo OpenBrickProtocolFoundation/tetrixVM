@@ -1,14 +1,12 @@
+using TetrisVM.FFI;
 using TetrisVM.Instructions;
 
 namespace TetrisVM.Functions;
 
-public class GetCurrentTetrominoFunction: ICallable
+public class GetCurrentTetrominoFunction : Callable<ObpfTetromino>
 {
-    public void Call(VirtualMaschine vm)
+    protected override ObpfTetromino Call()
     {
-        if (vm.Tetrion.TryGetActiveTetromino(out var tetromino))
-        {
-            vm.Stack.Push(tetromino);
-        }
+        return vm.Tetrion.TryGetActiveTetromino(out var tetromino) ? tetromino : default;
     }
 }

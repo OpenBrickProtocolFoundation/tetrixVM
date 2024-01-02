@@ -2,12 +2,11 @@ using TetrisVM.Instructions;
 
 namespace TetrisVM.Functions;
 
-public class SleepFunction : ICallable
+public class SleepFunction : Callable<object, byte>
 {
-    public void Call(VirtualMaschine vm)
+    protected override object Call(byte ms)
     {
-        var ms = (byte) vm.Stack.Pop();
-        
         Thread.Sleep(ms);
+        return null;
     }
 }
