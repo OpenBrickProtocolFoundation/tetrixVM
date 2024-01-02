@@ -12,7 +12,7 @@ public struct ObpfTetrion() : IDisposable
         Interop.obpf_destroy_tetrion(_ptr);
     }
 
-    public bool TryGetActiveTetromino(out ObpfTetromino out_tetromino)
+    public readonly bool TryGetActiveTetromino(out ObpfTetromino out_tetromino)
     {
         return Interop.obpf_tetrion_try_get_active_tetromino(_ptr, out out_tetromino);
     }

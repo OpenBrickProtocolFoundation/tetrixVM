@@ -9,17 +9,15 @@ public static class Program
     {
         var document = new AssemblyDocument(new StringSource("test.asm", """
                                                                          start
-                                                                         pushTetrominoType 0 0
-                                                                         input left
-                                                                         input drop
-                                                                         display
+                                                                         push 0
+                                                                         push 0
+                                                                         sleep 200
                                                                          stop
                                                                          """));
 
         using var program = document.Assemble();
 
         var vm = new VirtualMaschine(program);
-
         vm.Execute();
     }
 }

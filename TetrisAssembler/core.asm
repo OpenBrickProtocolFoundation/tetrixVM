@@ -4,9 +4,7 @@ enum OpCode {
     Flow = 0x03
     Data = 0x04
     Display = 0x05
-    Sleep = 0x06
-    PushCurrentTetromino = 0x07
-    PushTetrominoType = 0x08
+    Call = 0x07
 }
 
 enum GameMode {
@@ -55,7 +53,7 @@ macro sleep time {
 }
 
 macro getCurrentTetromino {
-    db PushCurrentTetromino
+    call 0
 }
 
 macro push value {
@@ -78,5 +76,15 @@ macro dup {
 macro pushTetrominoType x y {
     push x
     push y
-    db PushTetrominoType
+    call 1
+}
+
+macro call funcIndex {
+    db Call
+    db funcIndex
+}
+
+macro sleep ms {
+    push ms
+    call 2
 }
