@@ -1,4 +1,4 @@
-namespace TetrisVM.Instructions;
+namespace TetrisVM;
 
 public enum GameMode
 {
